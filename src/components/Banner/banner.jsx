@@ -1,11 +1,11 @@
 import "./banner.css";
 
 function Banner() {
-    return (
-        <header className="banner">
-            <img src="/images/banner.png" alt="Banner" />
-        </header>
-    )
+  return (
+    <header className="banner">
+      <img src="/images/banner.png" alt="Banner" />
+    </header>
+  );
 }
 
 export default Banner;
