@@ -10,15 +10,6 @@ function Form(props) {
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("");
 
-  const teams = [
-    "Programação",
-    "Front-End",
-    "Data Science",
-    "Devops",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -59,7 +50,7 @@ function Form(props) {
           value={team}
           onValueChange={(value) => setTeam(value)}
           label="Times"
-          items={teams}
+          items={props.teams}
         />
         <Btn>Criar Card</Btn>
       </form>

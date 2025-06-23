@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <Banner />
-      <Form onAddCollaborator={handleAddCollaborator} />
+      <Form onAddCollaborator={handleAddCollaborator} teams={teams.map(team => team.name)}/>
       {teams.map((team) => {
         return (
           <Team
