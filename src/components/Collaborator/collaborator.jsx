@@ -1,14 +1,14 @@
 import "./collaborator.css";
 
-function Collaborator() {
+function Collaborator(props) {
   return (
     <div className="collaborator">
       <div className="header">
-        <img src="https://github.com/leoAraujo20.png" alt="" />
+        <img src={props.image} alt={props.name} />
       </div>
       <div className="footer">
-        <h4>Leônidas</h4>
-        <h5>Software Engineer</h5>
+        <h4>{props.name}</h4>
+        <h5>{props.position}</h5>
       </div>
     </div>
   )

@@ -47,13 +47,15 @@ function App() {
 
   const handleAddCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
-    console.log("Colaborador adicionado:", collaborator);
   };
 
   return (
     <>
       <Banner />
-      <Form onAddCollaborator={handleAddCollaborator} teams={teams.map(team => team.name)}/>
+      <Form
+        onAddCollaborator={handleAddCollaborator}
+        teams={teams.map((team) => team.name)}
+      />
       {teams.map((team) => {
         return (
           <Team
@@ -61,6 +63,9 @@ function App() {
             name={team.name}
             primaryColor={team.primaryColor}
             secondaryColor={team.secondaryColor}
+            collaborators={collaborators.filter(
+              (collaborator) => collaborator.team === team.name
+            )}
           />
         );
       })}

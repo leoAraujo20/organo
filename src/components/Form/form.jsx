@@ -20,6 +20,10 @@ function Form(props) {
       team,
     };
     props.onAddCollaborator(formData);
+    setName("");
+    setPosition("");
+    setImage("");
+    setTeam("");
   };
 
   return (
