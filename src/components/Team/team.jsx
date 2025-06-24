@@ -13,6 +13,7 @@ function Team(props) {
           {props.collaborators.map((collaborator) => (
             <Collaborator
               key={collaborator.name}
+              primaryColor={props.primaryColor}
               image={collaborator.image}
               name={collaborator.name}
               position={collaborator.position}
