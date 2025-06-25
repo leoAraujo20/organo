@@ -10,9 +10,9 @@ function Team(props) {
       >
         <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
         <div className="collaborators">
-          {props.collaborators.map((collaborator) => (
+          {props.collaborators.map((collaborator, index) => (
             <Collaborator
-              key={collaborator.name}
+              key={index}
               primaryColor={props.primaryColor}
               image={collaborator.image}
               name={collaborator.name}

@@ -9,8 +9,8 @@ function SelectField(props) {
     <div className="select-field">
       <label>{props.label}</label>
       <select value={props.value} onChange={handleChange}>
-        {props.items.map((item) => {
-          return <option key={item}>{item}</option>;
+        {props.items.map((item,index) => {
+          return <option key={index}>{item}</option>;
         })}
       </select>
     </div>

@@ -57,10 +57,10 @@ function App() {
         onAddCollaborator={handleAddCollaborator}
         teams={teams.map((team) => team.name)}
       />
-      {teams.map((team) => {
+      {teams.map((team, index) => {
         return (
           <Team
-            key={team.name}
+            key={index}
             name={team.name}
             primaryColor={team.primaryColor}
             secondaryColor={team.secondaryColor}
