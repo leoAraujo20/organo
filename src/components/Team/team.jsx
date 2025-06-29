@@ -8,7 +8,10 @@ function Team(props) {
     return (
       <section
         className="team"
-        style={{ backgroundColor: hexToRgba(props.color, 0.6) }}
+        style={{ 
+          backgroundColor: hexToRgba(props.color, 0.6),
+          backgroundImage: "url(/images/fundo.png)", 
+        }}
       >
         <input onChange={(e) => props.onChangeTeamColor(props.name, e.target.value)} value={props.color} type='color' className='input-color' />
         <h3 style={{ borderColor: props.color }}>{props.name}</h3>
