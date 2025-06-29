@@ -1,14 +1,11 @@
 import "./select-field.css";
 
 function SelectField(props) {
-  const handleChange = (event) => {
-    props.onValueChange(event.target.value);
-  };
   
   return (
     <div className="select-field">
       <label>{props.label}</label>
-      <select value={props.value} onChange={handleChange}>
+      <select value={props.value} onChange={(e) => props.onValueChange(e.target.value)}>
         {props.items.map((item,index) => {
           return <option key={index}>{item}</option>;
         })}

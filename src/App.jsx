@@ -6,49 +6,55 @@ import Team from "./components/Team/team.jsx";
 import Footer from "./components/Footer/footer.jsx";
 
 function App() {
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       name: "Programação",
-      primaryColor: "#57C278",
-      secondaryColor: "#D9F7E9",
+      color: "#57C278",
     },
     {
       name: "Front-End",
-      primaryColor: "#82CFFA",
-      secondaryColor: "#E8F8FF",
+      color: "#82CFFA",
     },
     {
       name: "Data Science",
-      primaryColor: "#A6D157",
-      secondaryColor: "#F0F8E2",
+      color: "#A6D157",
     },
     {
       name: "Devops",
-      primaryColor: "#E06B69",
-      secondaryColor: "#FDE7E8",
+      color: "#E06B69",
     },
     {
       name: "UX e Design",
-      primaryColor: "#D86EBF",
-      secondaryColor: "#FAE5F5",
+      color: "#D86EBF",
     },
     {
       name: "Mobile",
-      primaryColor: "#FEBA05",
-      secondaryColor: "#FFF5D9",
+      color: "#FEBA05",
     },
     {
       name: "Inovação e Gestão",
-      primaryColor: "#FF8A29",
-      secondaryColor: "#FFEEDF",
+      color: "#FF8A29",
     },
-  ];
+  ]);
 
   const [collaborators, setCollaborators] = useState([]);
 
   const handleAddCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   };
+
+  const handleDeleteCollaborator = () => {
+    console.log("Colaborador deletado");
+  }
+
+  const handleChangeTeamColor = (teamName, newColor) => {
+    setTeams(teams.map((team) => {
+      if (team.name === teamName) {
+        team.color = newColor;
+      }
+      return team;
+    }))
+  }
 
   return (
     <>
@@ -60,13 +66,14 @@ function App() {
       {teams.map((team, index) => {
         return (
           <Team
+            onChangeTeamColor={handleChangeTeamColor}
             key={index}
             name={team.name}
-            primaryColor={team.primaryColor}
-            secondaryColor={team.secondaryColor}
+            color={team.color}
             collaborators={collaborators.filter(
               (collaborator) => collaborator.team === team.name
             )}
+            onDeleteCollaborator={handleDeleteCollaborator}
           />
         );
       })}
