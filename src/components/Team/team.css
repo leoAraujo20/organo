@@ -3,6 +3,7 @@
   padding: 32px;
   background-blend-mode: multiply;
   position: relative;
+  background-image: url("/images/fundo.png");
 }
 
 .team h3 {

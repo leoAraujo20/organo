@@ -10,7 +10,6 @@ function Team(props) {
         className="team"
         style={{ 
           backgroundColor: hexToRgba(props.color, 0.6),
-          backgroundImage: "url(/images/fundo.png)", 
         }}
       >
         <input onChange={(e) => props.onChangeTeamColor(props.name, e.target.value)} value={props.color} type='color' className='input-color' />
