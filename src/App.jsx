@@ -78,6 +78,7 @@ function App() {
           <Team
             onChangeTeamColor={handleChangeTeamColor}
             key={index}
+            id={team.id}
             name={team.name}
             color={team.color}
             collaborators={collaborators.filter(
