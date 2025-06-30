@@ -3,17 +3,20 @@ import Btn from "../Btn/btn";
 import SelectField from "../SelectField/select-field";
 import TextField from "../TextField/text-field";
 import "./form.css";
+import { v4 as uuidv4 } from 'uuid';
 
 function Form(props) {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("");
+ 
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = {
+      id: uuidv4(),
       name,
       position,
       image,

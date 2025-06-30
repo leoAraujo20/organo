@@ -4,34 +4,42 @@ import Banner from "./components/Banner/banner.jsx";
 import Form from "./components/Form/form.jsx";
 import Team from "./components/Team/team.jsx";
 import Footer from "./components/Footer/footer.jsx";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [teams, setTeams] = useState([
     {
+      id: uuidv4(),
       name: "Programação",
       color: "#57C278",
     },
     {
+      id: uuidv4(),
       name: "Front-End",
       color: "#82CFFA",
     },
     {
+      id: uuidv4(),
       name: "Data Science",
       color: "#A6D157",
     },
     {
+      id: uuidv4(),
       name: "Devops",
       color: "#E06B69",
     },
     {
+      id: uuidv4(),
       name: "UX e Design",
       color: "#D86EBF",
     },
     {
+      id: uuidv4(),
       name: "Mobile",
       color: "#FEBA05",
     },
     {
+      id: uuidv4(),
       name: "Inovação e Gestão",
       color: "#FF8A29",
     },
@@ -43,13 +51,15 @@ function App() {
     setCollaborators([...collaborators, collaborator]);
   };
 
-  const handleDeleteCollaborator = () => {
-    console.log("Colaborador deletado");
-  }
+  const handleDeleteCollaborator = (id) => {
+    setCollaborators(collaborators.filter((collaborator) => {
+      return collaborator.id !== id;
+    }));
+  };
 
-  const handleChangeTeamColor = (teamName, newColor) => {
+  const handleChangeTeamColor = (teamId, newColor) => {
     setTeams(teams.map((team) => {
-      if (team.name === teamName) {
+      if (team.id === teamId) {
         team.color = newColor;
       }
       return team;
