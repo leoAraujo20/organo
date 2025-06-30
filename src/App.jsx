@@ -66,10 +66,19 @@ function App() {
     }))
   }
 
+  const handleAddTeam = (team) => {
+    setTeams([...teams, {
+      id: uuidv4(),
+      name: team.name,
+      color: team.color,
+    }]);
+  }
+
   return (
     <>
       <Banner />
       <Form
+        onAddTeam={handleAddTeam}
         onAddCollaborator={handleAddCollaborator}
         teams={teams.map((team) => team.name)}
       />

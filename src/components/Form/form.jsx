@@ -10,10 +10,12 @@ function Form(props) {
   const [position, setPosition] = useState("");
   const [image, setImage] = useState("");
   const [team, setTeam] = useState("");
+  const [teamName, setTeamName] = useState("");
+  const [teamColor, setTeamColor] = useState("");
  
 
 
-  const handleSubmit = (event) => {
+  const handleSubmitCollaborator = (event) => {
     event.preventDefault();
     const formData = {
       id: uuidv4(),
@@ -29,9 +31,21 @@ function Form(props) {
     setTeam("");
   };
 
+  const handleSubmitTeam = (event) => {
+    event.preventDefault();
+    const formData = {
+      id: uuidv4(),
+      name: teamName,
+      color: teamColor,
+    };
+    props.onAddTeam(formData);
+    setTeamName("");
+    setTeamColor("");
+  };
+
   return (
     <section className="form-box">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitCollaborator}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
         <TextField
           value={name}
@@ -60,6 +74,24 @@ function Form(props) {
           items={props.teams}
         />
         <Btn>Criar Card</Btn>
+      </form>
+      <form onSubmit={handleSubmitTeam}>
+        <h2>Preencha os dados para criar um time</h2>
+        <TextField
+          value={teamName}
+          onValueChange={(value) => setTeamName(value)}
+          obrigatorio={true}
+          label="Nome"
+          placeholder="Digite o nome do time"
+        />
+        <TextField
+          value={teamColor}
+          onValueChange={(value) => setTeamColor(value)}
+          obrigatorio={true}
+          label="Cor"
+          placeholder="Digite a cor do time"
+        />
+        <Btn>Criar Time</Btn>
       </form>
     </section>
   );
