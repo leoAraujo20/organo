@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Btn from "../Btn/btn";
 import SelectField from "../SelectField/select-field";
-import TextField from "../TextField/text-field";
+import Field from "../Field/field.jsx";
 import "./form.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function Form(props) {
   const [name, setName] = useState("");
@@ -12,8 +12,6 @@ function Form(props) {
   const [team, setTeam] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("");
- 
-
 
   const handleSubmitCollaborator = (event) => {
     event.preventDefault();
@@ -47,21 +45,21 @@ function Form(props) {
     <section className="form-box">
       <form onSubmit={handleSubmitCollaborator}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <TextField
+        <Field
           value={name}
           onValueChange={(value) => setName(value)}
           obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
         />
-        <TextField
+        <Field
           value={position}
           onValueChange={(value) => setPosition(value)}
           obrigatorio={true}
           label="Cargo"
           placeholder="Digite seu cargo"
         />
-        <TextField
+        <Field
           value={image}
           onValueChange={(value) => setImage(value)}
           label="Imagem"
@@ -77,14 +75,15 @@ function Form(props) {
       </form>
       <form onSubmit={handleSubmitTeam}>
         <h2>Preencha os dados para criar um time</h2>
-        <TextField
+        <Field
           value={teamName}
           onValueChange={(value) => setTeamName(value)}
           obrigatorio={true}
           label="Nome"
           placeholder="Digite o nome do time"
         />
-        <TextField
+        <Field
+          type="color"
           value={teamColor}
           onValueChange={(value) => setTeamColor(value)}
           obrigatorio={true}

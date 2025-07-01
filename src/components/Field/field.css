@@ -1,18 +1,29 @@
-.text-field {
+.field {
   margin: 24px 0;
 }
 
-.text-field label {
+.field label {
   display: block;
   margin-bottom: 8px;
   font-size: 24px;
 }
 
-.text-field input {
-  background-color: #ffffff;
+.field input {
+  background: #ffffff;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 0px;
   width: 100%;
   border: none;
   font-size: 24px;
   padding: 24px;
+  box-sizing: border-box;
+}
+
+.field-color {
+  width: 68px;
+}
+
+.field-color input {
+  height: 40px;
+  padding: 5px;
 }
