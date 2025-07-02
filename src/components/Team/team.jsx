@@ -20,10 +20,12 @@ function Team(props) {
               <Collaborator
                 key={collaborator.id}
                 id={collaborator.id}
+                isFavorite={collaborator.isFavorite}
                 color={props.color}
                 image={collaborator.image}
                 name={collaborator.name}
                 position={collaborator.position}
+                onFavorite={props.onFavoriteCollaborator}
                 onDelete={props.onDeleteCollaborator}
               />
             );

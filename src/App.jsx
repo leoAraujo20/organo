@@ -4,7 +4,7 @@ import Banner from "./components/Banner/banner.jsx";
 import Form from "./components/Form/form.jsx";
 import Team from "./components/Team/team.jsx";
 import Footer from "./components/Footer/footer.jsx";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [teams, setTeams] = useState([
@@ -52,27 +52,44 @@ function App() {
   };
 
   const handleDeleteCollaborator = (id) => {
-    setCollaborators(collaborators.filter((collaborator) => {
-      return collaborator.id !== id;
-    }));
+    setCollaborators(
+      collaborators.filter((collaborator) => {
+        return collaborator.id !== id;
+      })
+    );
   };
 
   const handleChangeTeamColor = (teamId, newColor) => {
-    setTeams(teams.map((team) => {
-      if (team.id === teamId) {
-        team.color = newColor;
-      }
-      return team;
-    }))
-  }
+    setTeams(
+      teams.map((team) => {
+        if (team.id === teamId) {
+          team.color = newColor;
+        }
+        return team;
+      })
+    );
+  };
 
   const handleAddTeam = (team) => {
-    setTeams([...teams, {
-      id: uuidv4(),
-      name: team.name,
-      color: team.color,
-    }]);
-  }
+    setTeams([
+      ...teams,
+      {
+        id: uuidv4(),
+        name: team.name,
+        color: team.color,
+      },
+    ]);
+  };
+
+  const handleFavoriteCollaborator = (collaboratorId) => {
+    setCollaborators(
+      collaborators.map((collaborator) => {
+        if (collaborator.id === collaboratorId)
+          collaborator.isFavorite = !collaborator.isFavorite;
+        return collaborator;
+      })
+    );
+  };
 
   return (
     <>
@@ -93,6 +110,7 @@ function App() {
             collaborators={collaborators.filter(
               (collaborator) => collaborator.team === team.name
             )}
+            onFavoriteCollaborator={handleFavoriteCollaborator}
             onDeleteCollaborator={handleDeleteCollaborator}
           />
         );

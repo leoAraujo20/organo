@@ -15,6 +15,7 @@
 }
 
 .collaborator .details {
+  position: relative;
   background: #ffffff;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: 0px 0px 10px 10px;
@@ -44,5 +45,16 @@
 }
 
 .collaborator .delete:hover {
+  cursor: pointer;
+}
+
+.collaborator .details .favorite {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.collaborator .details .favorite:hover {
   cursor: pointer;
 }

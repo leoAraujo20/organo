@@ -32,6 +32,7 @@ function Form(props) {
   const handleSubmitTeam = (event) => {
     event.preventDefault();
     const formData = {
+      isFavorite: false,
       id: uuidv4(),
       name: teamName,
       color: teamColor,
