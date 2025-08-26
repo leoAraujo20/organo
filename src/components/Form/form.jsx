@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Btn from "../Btn/btn";
+import Btn from "../Btn/btn.tsx";
 import SelectField from "../SelectField/select-field";
 import Field from "../Field/field.jsx";
 import "./form.css";
