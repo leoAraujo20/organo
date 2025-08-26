@@ -3,7 +3,19 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 
-function Collaborator(props) {
+interface CollaboratorProps {
+  key: string,
+  id: string,
+  isFavorite: boolean,
+  color: string,
+  image: string,
+  name: string,
+  position: string,
+  onFavorite: (id: string) => void,
+  onDelete: (id: string) => void,
+}
+
+function Collaborator(props: CollaboratorProps) {
   return (
     <div className="collaborator">
       <IoIosCloseCircle
@@ -19,7 +31,11 @@ function Collaborator(props) {
         <h5>{props.position}</h5>
         <div className="favorite">
           {props.isFavorite ? (
-            <FaHeart onClick={() => props.onFavorite(props.id)} size={20} color="#ff0000" />
+            <FaHeart
+              onClick={() => props.onFavorite(props.id)}
+              size={20}
+              color="#ff0000"
+            />
           ) : (
             <CiHeart onClick={() => props.onFavorite(props.id)} size={20} />
           )}

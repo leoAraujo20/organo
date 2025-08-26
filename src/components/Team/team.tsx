@@ -1,9 +1,19 @@
-import Collaborator from "../Collaborator/collaborator.jsx";
+import Collaborator from "../Collaborator/collaborator.js";
 import "./team.css";
-
 import hexToRgba from 'hex-to-rgba';
+import { Collaborator as CollaboratorInterface } from "../../shared/interfaces";
 
-function Team(props) {
+interface TeamProps {
+  id: string;
+  name: string;
+  color: string;
+  collaborators: CollaboratorInterface[];
+  onDeleteCollaborator: (id: string) => void;
+  onFavoriteCollaborator: (id: string) => void;
+  onChangeTeamColor: (id: string, color: string) => void;
+}
+
+function Team(props: TeamProps) {
   if (props.collaborators.length > 0) {
     return (
       <section
