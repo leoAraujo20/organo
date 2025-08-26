@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Banner from "./components/Banner/banner.jsx";
+import Banner from "./components/Banner/banner.tsx";
 import Form from "./components/Form/form.jsx";
 import Team from "./components/Team/team.jsx";
 import Footer from "./components/Footer/footer.jsx";
@@ -93,7 +93,7 @@ function App() {
 
   return (
     <>
-      <Banner />
+      <Banner img="/images/banner.png" alt="Banner" />
       <Form
         onAddTeam={handleAddTeam}
         onAddCollaborator={handleAddCollaborator}
