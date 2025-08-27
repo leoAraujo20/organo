@@ -4,6 +4,7 @@ export interface ICollaborator {
   position: string;
   image: string;
   isFavorite: boolean;
+  team?: string;
 }
 
 export interface ITeam {

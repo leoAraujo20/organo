@@ -1,10 +1,10 @@
 import { useState } from "react";
-
 import Banner from "./components/Banner/banner.tsx";
-import Form from "./components/Form/form.jsx";
-import Team from "./components/Team/team.jsx";
-import Footer from "./components/Footer/footer.jsx";
+import Form from "./components/Form/form.js";
+import Team from "./components/Team/team.js";
+import Footer from "./components/Footer/footer.tsx";
 import { v4 as uuidv4 } from "uuid";
+import { ICollaborator, ITeam } from "./shared/interfaces.ts";
 
 function App() {
   const [teams, setTeams] = useState([
@@ -45,13 +45,13 @@ function App() {
     },
   ]);
 
-  const [collaborators, setCollaborators] = useState([]);
+  const [collaborators, setCollaborators] = useState<ICollaborator[]>([]);
 
-  const handleAddCollaborator = (collaborator) => {
+  const handleAddCollaborator = (collaborator: ICollaborator) => {
     setCollaborators([...collaborators, collaborator]);
   };
 
-  const handleDeleteCollaborator = (id) => {
+  const handleDeleteCollaborator = (id: string) => {
     setCollaborators(
       collaborators.filter((collaborator) => {
         return collaborator.id !== id;
@@ -59,7 +59,7 @@ function App() {
     );
   };
 
-  const handleChangeTeamColor = (teamId, newColor) => {
+  const handleChangeTeamColor = (teamId: string, newColor: string) => {
     setTeams(
       teams.map((team) => {
         if (team.id === teamId) {
@@ -70,7 +70,7 @@ function App() {
     );
   };
 
-  const handleAddTeam = (team) => {
+  const handleAddTeam = (team: ITeam) => {
     setTeams([
       ...teams,
       {
@@ -81,7 +81,7 @@ function App() {
     ]);
   };
 
-  const handleFavoriteCollaborator = (collaboratorId) => {
+  const handleFavoriteCollaborator = (collaboratorId: string) => {
     setCollaborators(
       collaborators.map((collaborator) => {
         if (collaborator.id === collaboratorId)
