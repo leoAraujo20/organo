@@ -1,13 +1,13 @@
 import Collaborator from "../Collaborator/collaborator.js";
 import "./team.css";
 import hexToRgba from 'hex-to-rgba';
-import { Collaborator as CollaboratorInterface } from "../../shared/interfaces";
+import { ICollaborator } from "../../shared/interfaces";
 
 interface TeamProps {
   id: string;
   name: string;
   color: string;
-  collaborators: CollaboratorInterface[];
+  collaborators: ICollaborator[];
   onDeleteCollaborator: (id: string) => void;
   onFavoriteCollaborator: (id: string) => void;
   onChangeTeamColor: (id: string, color: string) => void;
