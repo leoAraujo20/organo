@@ -10,8 +10,9 @@
 .collaborator img {
   width: 100px;
   border-radius: 50%;
-  position: relative;
   bottom: -50px;
+  position: relative;
+  z-index: 1;
 }
 
 .collaborator .details {
