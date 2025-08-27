@@ -1,11 +1,18 @@
 import { useState } from "react";
 import Btn from "../Btn/btn.tsx";
-import SelectField from "../SelectField/select-field";
-import Field from "../Field/field.jsx";
+import SelectField from "../SelectField/select-field.tsx";
+import Field from "../Field/field.js";
 import "./form.css";
 import { v4 as uuidv4 } from "uuid";
+import { ICollaborator, ITeam } from "../../shared/interfaces.ts";
 
-function Form(props) {
+interface FormProps {
+  teams: string[];
+  onAddCollaborator: (collaborator: ICollaborator) => void;
+  onAddTeam: (team: ITeam) => void;
+}
+
+function Form(props: FormProps) {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [image, setImage] = useState("");
@@ -13,7 +20,7 @@ function Form(props) {
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("");
 
-  const handleSubmitCollaborator = (event) => {
+  const handleSubmitCollaborator = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = {
       id: uuidv4(),
@@ -21,6 +28,7 @@ function Form(props) {
       position,
       image,
       team,
+      isFavorite: false,
     };
     props.onAddCollaborator(formData);
     setName("");
@@ -29,10 +37,9 @@ function Form(props) {
     setTeam("");
   };
 
-  const handleSubmitTeam = (event) => {
+  const handleSubmitTeam = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = {
-      isFavorite: false,
       id: uuidv4(),
       name: teamName,
       color: teamColor,
