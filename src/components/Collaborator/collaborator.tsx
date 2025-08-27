@@ -11,6 +11,7 @@ interface CollaboratorProps {
   image: string,
   name: string,
   position: string,
+  date: string,
   onFavorite: (id: string) => void,
   onDelete: (id: string) => void,
 }
@@ -29,6 +30,7 @@ function Collaborator(props: CollaboratorProps) {
       <div className="details">
         <h4 style={{ color: props.color }}>{props.name}</h4>
         <h5>{props.position}</h5>
+        <span>{new Date(props.date).toLocaleDateString()}</span>
         <div className="favorite">
           {props.isFavorite ? (
             <FaHeart

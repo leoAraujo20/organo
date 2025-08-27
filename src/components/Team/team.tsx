@@ -35,6 +35,7 @@ function Team(props: TeamProps) {
                 image={collaborator.image}
                 name={collaborator.name}
                 position={collaborator.position}
+                date={collaborator.date}
                 onFavorite={props.onFavoriteCollaborator}
                 onDelete={props.onDeleteCollaborator}
               />

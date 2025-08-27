@@ -19,6 +19,7 @@ function Form(props: FormProps) {
   const [team, setTeam] = useState("");
   const [teamName, setTeamName] = useState("");
   const [teamColor, setTeamColor] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmitCollaborator = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,6 +29,7 @@ function Form(props: FormProps) {
       position,
       image,
       team,
+      date,
       isFavorite: false,
     };
     props.onAddCollaborator(formData);
@@ -35,6 +37,7 @@ function Form(props: FormProps) {
     setPosition("");
     setImage("");
     setTeam("");
+    setDate("");
   };
 
   const handleSubmitTeam = (event: React.FormEvent<HTMLFormElement>) => {
@@ -72,6 +75,13 @@ function Form(props: FormProps) {
           onValueChange={(value) => setImage(value)}
           label="Imagem"
           placeholder="Digite o URL da imagem"
+        />
+        <Field
+          value={date}
+          onValueChange={(value) => setDate(value)}
+          label="Data"
+          placeholder="10/10/2022"
+          type="date"
         />
         <SelectField
           value={team}
